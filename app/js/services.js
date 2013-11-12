@@ -52,6 +52,37 @@
                 });
         };
 
+        /*
+         * queryStringParameters:
+         * e.g.
+         *  { "latlng" : "40.714224,-73.961452", "sensor" : "false" }
+         */
+        ApiService.getZip = function(queryStringParameters, callback) {
+
+            $http(
+                {
+                    "method" : "GET",
+                    "url" : "http://maps.googleapis.com/maps/api/geocode/json",
+                    "cache" : false,
+                    "params" : queryStringParameters
+                })
+                .success(function(data, status, headers, config) {
+                    var zip = null;
+                    var addressComponents = data.results[0].address_components;
+                    for(var comp in addressComponents) {
+                        if (addressComponents[comp].types[0] == "postal_code") {
+                            zip = addressComponents[comp].short_name;
+                        }
+                    }
+
+                    callback(false, zip);
+                })
+                .error(function(data, status, headers, config) {
+
+                    callback(true, null);
+                });
+        };
+
         return ApiService;
     }]);
 
