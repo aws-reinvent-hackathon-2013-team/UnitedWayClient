@@ -13,6 +13,7 @@
      */
     angular.module('uw.controllers').controller('MainCtrl', ['$scope', function($scope) {
 
+        $scope.selectedView = 'welcome-view.html';
     }]);
 
     /*
