@@ -1,16 +1,21 @@
-'use strict';
+(function(){
 
+    'use strict';
 
-// Declare app level module which depends on filters, and services
-angular.module('myApp', [
-  'ngRoute',
-  'myApp.filters',
-  'myApp.services',
-  'myApp.directives',
-  'myApp.controllers'
-]).
-config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/view1', {templateUrl: 'partials/partial1.html', controller: 'MyCtrl1'});
-  $routeProvider.when('/view2', {templateUrl: 'partials/partial2.html', controller: 'MyCtrl2'});
-  $routeProvider.otherwise({redirectTo: '/view1'});
-}]);
+    /*
+     * Creating the MAIN APP 'edusAdmin' module
+     */
+    angular.module('uw', ['ngRoute', 'uw.services', 'uw.directives', 'uw.filters', 'uw.controllers']);
+
+    angular.module('uw').config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+
+        $routeProvider.
+            when('/welcome', {contorller:'WelcomeCtrl', templateUrl:'app/partials/welcome.html'}).
+            when('/opportunities', {controller:'OpportunitiesCtrl', templateUrl:'app/partials/opportunities.html'}).
+            when('/opportunitiy', {controller:'OpportunityCtrl', templateUrl:'app/partials/opportunitiy.html'}).
+            otherwise({redirectTo:'/welcome'});
+
+        $locationProvider.html5Mode(true).hashPrefix('!');
+    }]);
+
+}());

@@ -1,29 +1,31 @@
 <!doctype html>
-<html lang="en" ng-app="myApp">
+<html lang="en" ng-app="uw">
 <head>
-  <meta charset="utf-8">
-  <title>My AngularJS App</title>
+    <meta charset="utf-8">
+    <title>My AngularJS App</title>
     <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="lib/bootstrap/css/bootstrap-theme.min.css">
-    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="css/app.css"/>
+    <link rel="stylesheet" href="css/app.css"/>
 </head>
 <body>
-  <ul class="menu">
-    <li><a href="#/view1">view1</a></li>
-    <li><a href="#/view2">view2</a></li>
-  </ul>
+<ul class="menu">
+    <li><a href="/welcome">Welcome</a></li>
+    <li><a href="/opportunities">opportunities</a></li>
+    <li><a href="/opportunity">opportunity</a></li>
+</ul>
 
-  <div ng-view></div>
+<div ng-view></div>
 
-  <div>Angular seed app: v<span app-version></span></div>
+<div>Angular seed app: v<span app-version></span></div>
 
-  <script src="lib/angular/angular.js"></script>
-  <script src="lib/angular/angular-route.js"></script>
-  <script src="js/app.js"></script>
-  <script src="js/services.js"></script>
-  <script src="js/controllers.js"></script>
-  <script src="js/filters.js"></script>
-  <script src="js/directives.js"></script>
+<script src="lib/jquery/jquery-2.0.3.min.js"></script>
+<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="lib/angular/angular.js"></script>
+<script src="lib/angular/angular-route.js"></script>
+<script src="js/app.js"></script>
+<script src="js/services.js"></script>
+<script src="js/controllers.js"></script>
+<script src="js/filters.js"></script>
+<script src="js/directives.js"></script>
 </body>
 </html>
