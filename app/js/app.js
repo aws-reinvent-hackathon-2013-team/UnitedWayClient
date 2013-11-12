@@ -10,10 +10,10 @@
     angular.module('uw').config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 
         $routeProvider.
-            when('/welcome', {contorller:'WelcomeCtrl', templateUrl:'app/partials/welcome.html'}).
+            when('/index', {contorller:'WelcomeCtrl', templateUrl:'app/partials/index.html'}).
             when('/opportunities', {controller:'OpportunitiesCtrl', templateUrl:'app/partials/opportunities.html'}).
             when('/opportunitiy', {controller:'OpportunityCtrl', templateUrl:'app/partials/opportunitiy.html'}).
-            otherwise({redirectTo:'/welcome'});
+            otherwise({redirectTo:'/index'});
 
         $locationProvider.html5Mode(true).hashPrefix('!');
     }]);
