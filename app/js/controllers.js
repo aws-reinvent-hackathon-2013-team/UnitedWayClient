@@ -53,7 +53,12 @@
     /*
      * Opportunity Controller
      */
-    angular.module('uw.controllers').controller('OpportunityCtrl', ['$scope', function($scope) {
-
+    angular.module('uw.controllers').controller('OpportunityCtrl', ['$scope', '$location', function($scope, $location) {
+        $scope.oppId = $location.search().id;
+        for (var opp in $scope.opportunities) {
+            if ($scope.opportunities[opp].id == $scope.oppId) {
+                $scope.opportunity = $scope.opportunities[opp];
+            }
+        }
     }]);
 }());
