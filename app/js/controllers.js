@@ -61,4 +61,11 @@
             }
         }
     }]);
+
+    /*
+     * Preferences Controller
+     */
+    angular.module('uw.controllers').controller('PreferencesCtrl', ['$scope', function($scope) {
+
+    }]);
 }());
