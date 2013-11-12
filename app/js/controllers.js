@@ -29,6 +29,11 @@
             $scope.selectedView = 'map-view';
         };
 
+        $scope.showListView = function() {
+
+            $scope.selectedView = 'list-view';
+        };
+
         $scope.getOpportunities = function() {
 
             if($scope.selectedView === "welcome-view") {

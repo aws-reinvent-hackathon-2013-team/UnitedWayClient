@@ -13,8 +13,14 @@ body {
     padding-top: 20px;
 }
 
+.uw-list-view-button,
 .uw-map-view-button {
     padding:10px 0px;
+    text-align: center;
+}
+
+.uw-map-view-container {
+    padding: 10px;
     text-align: center;
 }
 
