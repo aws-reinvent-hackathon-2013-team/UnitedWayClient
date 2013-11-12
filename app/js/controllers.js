@@ -9,6 +9,13 @@
     angular.module('uw.controllers', []);
 
     /*
+     * Main Controller
+     */
+    angular.module('uw.controllers').controller('MainCtrl', ['$scope', function($scope) {
+
+    }]);
+
+    /*
      * Welcome Controller
      */
     angular.module('uw.controllers').controller('WelcomeCtrl', ['$scope', function($scope) {
