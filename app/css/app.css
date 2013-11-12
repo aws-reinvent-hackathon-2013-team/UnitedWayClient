@@ -12,3 +12,17 @@ body {
 
     padding-top: 20px;
 }
+
+.opportunityTitle {
+    font-weight: bold;
+    font-size: 110%;
+}
+
+.opportunityDescription {
+    font-size: 90%;
+    color: #555;
+}
+
+.opportunityTable {
+    margin-top: 0.5em;
+}

@@ -10,11 +10,11 @@
 
         var ApiService = {};
 
-        ApiSerivce.getCategories = function(callback) {
+        ApiService.getCategories = function(callback) {
 
             $http(
                 {
-                    "meghod" : "GET",
+                    "method" : "GET",
                     "url" : "/api/categories",
                     "cache" : false
                 })
@@ -37,7 +37,7 @@
 
             $http(
                 {
-                    "meghod" : "GET",
+                    "method" : "GET",
                     "url" : "/api/opportunities",
                     "cache" : false,
                     "params" : queryStringParameters

@@ -1,0 +1,13 @@
+<table class="table table-responsive opportunityTable">
+    <tbody>
+        <tr ng-repeat="opportunity in opportunities">
+            <a href="/opportunity">
+                <td>
+                    <span class="opportunityTitle">{{opportunity.title}}</span>
+                    <br/>
+                    <span class="opportunityDescription">{{opportunity.description}}</span> <!-- TODO: Limit length -->
+                </td>
+            </a>
+        </tr>
+    </tbody>
+</table>
