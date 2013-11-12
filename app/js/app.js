@@ -9,8 +9,7 @@
 
     angular.module('uw').config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
         $routeProvider.
-            when('/index', {controller:'WelcomeCtrl', templateUrl:'app/partials/index.html'}).
-            when('/opportunities', {controller:'OpportunitiesCtrl', templateUrl:'app/partials/opportunities.html'}).
+            when('/index', {controller:'MainCtrl', templateUrl:'app/partials/main.html'}).
             when('/opportunity', {controller:'OpportunityCtrl', templateUrl:'app/partials/opportunity.html'}).
             otherwise({redirectTo:'/index'});
 
