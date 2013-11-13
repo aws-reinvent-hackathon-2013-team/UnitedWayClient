@@ -127,28 +127,25 @@
         // Markers
         if($scope.opportunities) {
 
-            //var markers = [];
-
             var infoWindow = new google.maps.InfoWindow({ content: "..." });
 
             for(var i = 0; i < $scope.opportunities.length; i++) {
 
                 var data = $scope.opportunities[i];
-                //markers.push([data.title, data.location.latitude, data.location.longitude, i + 1]);
 
                 var marker = new google.maps.Marker({
                     position: new google.maps.LatLng(data.location.latitude, data.location.longitude),
                     map: map,
                     title: data.title,
                     zIndex: i + 1,
-                    icon: '/img/blue-dot.png'
+                    icon: '/img/blue-dot.png',
+                    opportunityId: data.id
                 });
-
-               // var title = markers[i][0];
 
                 google.maps.event.addListener(marker, 'click', function() {
 
-                    infoWindow.setContent(this.title);
+                    var html = "<a href='/opportunity?id=" + this.opportunityId + "'>" + this.title + "</a>";
+                    infoWindow.setContent(html);
                     infoWindow.open(map, this);
                 });
             }
