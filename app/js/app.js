@@ -5,7 +5,7 @@
     /*
      * Creating the MAIN APP 'edusAdmin' module
      */
-    angular.module('uw', ['ngRoute', 'AngularGM', 'uw.services', 'uw.directives', 'uw.filters', 'uw.controllers']);
+    angular.module('uw', ['ngRoute', 'uw.services', 'uw.directives', 'uw.filters', 'uw.controllers']);
 
     angular.module('uw').config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
         $routeProvider.

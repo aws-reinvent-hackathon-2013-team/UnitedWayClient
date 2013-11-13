@@ -87,7 +87,7 @@
     }]);
 
     // API Mock Service
-    angular.module('uw.services').factory('uw.services.api.mock', ['$http', function($http) {
+    angular.module('uw.services').factory('uw.services.api.mock', ['$http', 'uw.services.api', function($http, apiService) {
 
         var ApiMockService = {};
 
@@ -169,6 +169,8 @@
                 }
             ]);
         };
+
+        ApiMockService.getZip = apiService.getZip;
 
         return ApiMockService;
     }]);

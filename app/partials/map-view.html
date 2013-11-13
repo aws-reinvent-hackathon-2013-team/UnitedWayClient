@@ -1,11 +1,12 @@
 <!--
     https://github.com/dylanfprice/angular-gm
 -->
-        
-<div class="uw-list-view-button">
-    <button type="button" class="btn btn-default" ng-click="showListView()">List View</button>
-</div>
 
-<div class="uw-map-view-container">
-    <gm-map gm-map-id="'myMap'" gm-center="center" gm-zoom="zoom" gm-bounds="bounds" gm-map-type-id="mapTypeId" style="width:460px;height:460px;"></gm-map>
+<div ng-controller="MapCtrl">
+    <div class="uw-list-view-button">
+        <button type="button" class="btn btn-default" ng-click="showListView()">List View</button>
+    </div>
+
+    <div id="map-canvas" class="uw-map-view-container">
+    </div>
 </div>

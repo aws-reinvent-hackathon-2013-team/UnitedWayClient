@@ -20,8 +20,9 @@ body {
 }
 
 .uw-map-view-container {
-    padding: 10px;
-    text-align: center;
+    margin: 10px;
+    height: 460px;
+    width: 460px;
 }
 
 .opportunityTitle {
