@@ -93,7 +93,7 @@
 
         ApiMockService.getCategories = function(callback) {
 
-           callback(false, ["Education", "BasicNeeds", "Income"]);
+           callback(false, [{"id": "EDUCATION", "name":"Education"}, {"id":"BasicNeeds","name":"Basic Needs"}, {"id":"INCOME","name":"Income"}]);
         };
 
         /*
