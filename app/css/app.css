@@ -30,13 +30,17 @@ body {
     font-size: 110%;
 }
 
-.opportunityDescription {
+.opportunityDescription, .opportunityLocation {
     font-size: 90%;
     color: #555;
 }
 
 .opportunityTable {
     margin-top: 0.5em;
+}
+
+.opportunityAgencyHeader {
+    font-style: italic;
 }
 
 .opportunityTable a {
