@@ -13,7 +13,7 @@
      */
     angular.module('uw.controllers').controller('AppCtrl', ['$scope', '$window', '$http', 'uw.services.api', function($scope, $window, $http, serviceApi) {
         $scope.preferences = {};
-        serviceApi.getCategories(function(err, data) {
+        serviceApi.getCategories($scope.donor, function(err, data) {
             $scope.preferences.categoryOptions = data;
         });
         $scope.preferences.distanceOptions = [ 10, 20, 30, 50, 60 ];
@@ -60,7 +60,7 @@
             }
             else {
 
-                serviceApi.getOpportunities({ "zip" : $scope.location.zip }, function(err, data) {
+                serviceApi.getOpportunities($scope.donor, { "zip" : $scope.location.zip }, function(err, data) {
 
                     if(err) {
 

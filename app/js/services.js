@@ -10,7 +10,7 @@
 
         var ApiService = {};
 
-        ApiService.getCategories = function(callback) {
+        ApiService.getCategories = function(donor, callback) {
 
             $http(
                 {
@@ -18,12 +18,12 @@
                     "url" : "/api/categories",
                     "cache" : false,
                     "headers": {
-                        "X-United-Way-Volunteer": $scope.donor.headerId
+                        "X-United-Way-Volunteer": donor.headerId
                     }
                 })
                 .success(function(data, status, headers, config) {
-                    if($scope.donor.headerId==null) {
-                        $scope.donor.headerId = headers()["X-United-Way-Volunteer"];
+                    if(donor.headerId==null) {
+                        donor.headerId = headers()["X-United-Way-Volunteer"];
                     }
 
                     callback(false, data);
@@ -39,7 +39,7 @@
          * e.g.
          *  { "zip" : "90210", "category" : "cat1", "category" : "cat2" }
          */
-        ApiService.getOpportunities = function(queryStringParameters, callback) {
+        ApiService.getOpportunities = function(donor, queryStringParameters, callback) {
 
             $http(
                 {
@@ -48,12 +48,12 @@
                     "cache" : false,
                     "params" : queryStringParameters,
                     "headers": {
-                        "X-United-Way-Volunteer": $scope.donor.headerId
+                        "X-United-Way-Volunteer": donor.headerId
                     }
                 })
                 .success(function(data, status, headers, config) {
-                    if($scope.donor.headerId==null) {
-                        $scope.donor.headerId = headers()["X-United-Way-Volunteer"];
+                    if(donor.headerId==null) {
+                        donor.headerId = headers()["X-United-Way-Volunteer"];
                     }
 
                     callback(false, data);
@@ -103,7 +103,7 @@
 
         var ApiMockService = {};
 
-        ApiMockService.getCategories = function(callback) {
+        ApiMockService.getCategories = function(donor, callback) {
 
            callback(false, [{"id": "EDUCATION", "name":"Education"}, {"id":"BasicNeeds","name":"Basic Needs"}, {"id":"INCOME","name":"Income"}]);
         };
@@ -113,7 +113,7 @@
          * e.g.
          *  { "zip" : "90210", "category" : "cat1", "category" : "cat2" }
          */
-        ApiMockService.getOpportunities = function(queryStringParameters, callback) {
+        ApiMockService.getOpportunities = function(donor, queryStringParameters, callback) {
 
             /*
              id
