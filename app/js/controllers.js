@@ -39,7 +39,9 @@
         };
 
         $scope.getOpportunities = function() {
+
             if($scope.selectedView === "welcome-view") {
+
                 $scope.selectedView = 'list-view';
             }
 
@@ -48,8 +50,6 @@
 
         function loadOpportunities() {
 
-            console.log("DEBUG: zip >%s<", $scope.location.zip);
-
             if(!$scope.location.zip) {
 
                 alertify.error("Please enter Zip code");
@@ -57,8 +57,15 @@
             else {
 
                 serviceApi.getOpportunities({ "zip" : $scope.location.zip }, function(err, data) {
-                    // TODO: Handle the error
-                    $scope.opportunities = data;
+
+                    if(err) {
+
+                        alertify.error("ERROR: Getting Volunteer Opportunities");
+                    }
+                    else {
+
+                        $scope.opportunities = data;
+                    }
                 });
             }
         }
@@ -112,6 +119,24 @@
             title: 'My Location'
         });
 
+        // Markers
+        if($scope.opportunities) {
+
+            var markers = [];
+
+            for(var i = 0; i < $scope.opportunities.length; i++) {
+
+                var data = $scope.opportunities[i];
+                markers.push([data.title, data.location.latitude, data.location.longitude, i + 1]);
+
+                new google.maps.Marker({
+                    position: new google.maps.LatLng(markers[i][1], markers[i][2]),
+                    map: map,
+                    title: markers[i][0],
+                    zIndex: markers[i][3]
+                });
+            }
+        }
     }]);
 
     /*

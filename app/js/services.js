@@ -138,7 +138,9 @@
                         "address2": "",
                         "city": "Bar City",
                         "state": "CA",
-                        "zip": "95691"
+                        "zip": "95691",
+                        "latitude": -33.890542,
+                        "longitude": 151.274856
                     }
                 },
                 {
@@ -164,7 +166,9 @@
                         "address2": "",
                         "city": "Las Vegas",
                         "state": "NV",
-                        "zip": "45678"
+                        "zip": "45678",
+                        "latitude": -33.923036,
+                        "longitude": 151.259052
                     }
                 }
             ]);
