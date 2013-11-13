@@ -12,6 +12,11 @@
      * Main Controller
      */
     angular.module('uw.controllers').controller('AppCtrl', ['$scope', '$http', 'uw.services.api.mock', function($scope, $http, serviceApi) {
+        $scope.preferences = {};
+
+        serviceApi.getCategories(function(err, data) {
+            $scope.preferences.categoryOptions = data;
+        });
 
         $scope.selectedView = 'welcome-view';
 
@@ -65,7 +70,9 @@
     /*
      * Preferences Controller
      */
-    angular.module('uw.controllers').controller('PreferencesCtrl', ['$scope', function($scope) {
-
+    angular.module('uw.controllers').controller('PreferencesCtrl', ['$scope', '$location', function($scope, $location) {
+        $scope.save = function() {
+            $location.path("/index");
+        }
     }]);
 }());
