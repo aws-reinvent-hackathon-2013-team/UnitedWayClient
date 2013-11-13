@@ -1,18 +1,4 @@
 <div class="uw-map-view-button">
     <button type="button" class="btn btn-default" ng-click="showMapView()">Map View</button>
 </div>
-<table class="table table-responsive opportunityTable">
-    <tbody>
-        <tr ng-repeat="opportunity in opportunities">
-            <td>
-                <a href="/opportunity?id={{opportunity.id}}">
-                    <div>
-                        <span class="opportunityTitle">{{opportunity.title}}</span>
-                        <br/>
-                        <span class="opportunityDescription">{{opportunity.description}}</span> <!-- TODO: Limit length -->
-                    </div>
-                </a>
-            </td>
-        </tr>
-    </tbody>
-</table>
+<div ng-include="/partials/list-include.html"></div>
