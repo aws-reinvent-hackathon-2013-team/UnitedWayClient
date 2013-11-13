@@ -13,10 +13,10 @@
      */
     angular.module('uw.controllers').controller('AppCtrl', ['$scope', '$window', '$http', 'uw.services.api', function($scope, $window, $http, serviceApi) {
         $scope.preferences = {};
-
         serviceApi.getCategories(function(err, data) {
             $scope.preferences.categoryOptions = data;
         });
+        $scope.preferences.distanceOptions = [ 10, 20, 30, 50, 60 ];
 
         $scope.selectedView = 'welcome-view';
         $scope.zip;
@@ -24,6 +24,8 @@
             latitude: 0,
             longitude: 0
         };
+
+        $scope.donor = {};
 
         $scope.showMapView = function() {
 
@@ -36,11 +38,11 @@
         };
 
         $scope.getOpportunities = function() {
-
             if($scope.selectedView === "welcome-view") {
-
                 $scope.selectedView = 'list-view';
             }
+
+            loadOpportunities("ignored");
         };
 
         function loadOpportunities(zip) {
@@ -69,9 +71,6 @@
         };
 
         getLocation();
-
-        loadOpportunities(91604);
-
     }]);
 
     /*
@@ -124,4 +123,14 @@
             $location.path("/index");
         }
     }]);
+
+    /*
+     * Login Controller
+     */
+    angular.module('uw.controllers').controller('LoginCtrl', ['$scope', '$location', function($scope, $location) {
+        $scope.login = function() {
+            $location.path("/index");
+        }
+    }]);
+
 }());

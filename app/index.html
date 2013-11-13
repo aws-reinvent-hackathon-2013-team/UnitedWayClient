@@ -26,7 +26,8 @@
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Home</a></li>
-                <li><a href="/login">Login</a></li>
+                <li ng-show="donor.id==null"><a href="/login">Login</a></li>
+                <li ng-show="donor.id!=null"><a href="/myEvents">My Events</a></li>
                 <li><a href="/preferences">Preferences</a></li>
             </ul>
         </div>

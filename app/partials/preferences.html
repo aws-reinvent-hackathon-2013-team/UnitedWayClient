@@ -1,10 +1,5 @@
 <span>Distance</span><br/>
-<select class="form-control" ng-model="preferences.distance">
-    <option>10</option>
-    <option>20</option>
-    <option>30</option>
-    <option>50</option>
-    <option>100</option>
+<select class="form-control" ng-model="preferences.distance" ng-options="c for c in preferences.distanceOptions">
 </select>
 <br/><span>Categories</span><br/>
 <select multiple class="form-control" ng-model="preferences.categories" ng-options="c for c in preferences.categoryOptions">

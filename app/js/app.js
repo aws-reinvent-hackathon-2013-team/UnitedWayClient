@@ -12,6 +12,7 @@
             when('/index', {controller:'MainCtrl', templateUrl:'/partials/main.html'}).
             when('/opportunity', {controller:'OpportunityCtrl', templateUrl:'/partials/opportunity.html'}).
             when('/preferences', {controller:'PreferencesCtrl', templateUrl:'/partials/preferences.html'}).
+            when('/login', {controller:'LoginCtrl', templateUrl:'/partials/login.html'}).
             otherwise({redirectTo:'/index'});
 
         $locationProvider.html5Mode(true).hashPrefix('!');
