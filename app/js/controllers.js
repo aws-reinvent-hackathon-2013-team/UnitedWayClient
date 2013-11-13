@@ -139,9 +139,10 @@
                     icon: '/img/blue-dot.png'
                 });
 
+                var title = markers[i][0];
+                var infowindow = new google.maps.InfoWindow({ content: title });
                 google.maps.event.addListener(marker, 'click', function() {
 
-                    var infowindow = new google.maps.InfoWindow({ content: markers[i][0] });
                     infowindow.open(map, marker);
                 });
             }
