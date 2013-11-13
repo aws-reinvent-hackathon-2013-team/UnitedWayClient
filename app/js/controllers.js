@@ -79,6 +79,7 @@
                 var latLng = position.coords.latitude + "," + position.coords.longitude;
                 serviceApi.getZip({ "latlng" : latLng, "sensor" : "false" }, function(err, zip) {
 
+                    alertify.success("ZIP code: " + zip);
                     $scope.location.zip = zip;
                     $scope.location.latitude = position.coords.latitude;
                     $scope.location.longitude = position.coords.longitude;
