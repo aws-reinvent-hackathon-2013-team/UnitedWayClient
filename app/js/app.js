@@ -11,9 +11,9 @@
         $routeProvider.
             when('/index', {controller:'MainCtrl', templateUrl:'app/partials/main.html'}).
             when('/opportunity', {controller:'OpportunityCtrl', templateUrl:'app/partials/opportunity.html'}).
+            when('/preferences', {controller:'PreferencesCtrl', templateUrl:'app/partials/preferences.html'}).
             otherwise({redirectTo:'/index'});
 
         $locationProvider.html5Mode(true).hashPrefix('!');
     }]);
-
 }());

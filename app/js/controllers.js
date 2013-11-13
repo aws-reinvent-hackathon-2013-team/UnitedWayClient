@@ -12,6 +12,11 @@
      * Main Controller
      */
     angular.module('uw.controllers').controller('AppCtrl', ['$scope', '$window', '$http', 'uw.services.api.mock', function($scope, $window, $http, serviceApi) {
+        $scope.preferences = {};
+
+        serviceApi.getCategories(function(err, data) {
+            $scope.preferences.categoryOptions = data;
+        });
 
         $scope.selectedView = 'welcome-view';
         $scope.zip;
@@ -48,20 +53,18 @@
         function getLocation() {
 
             $window.navigator.geolocation.getCurrentPosition(function(position) {
-                console.log("DEBUG: foo");
-                console.log("DEBUG: Lat : ", position.coords.latitude);
-                console.log("DEBUG: Lng : ", position.coords.longitude);
+
                 var latLng = position.coords.latitude + "," + position.coords.longitude;
                 serviceApi.getZip({ "latlng" : latLng, "sensor" : "false" }, function(err, zip) {
 
-                    console.log("DEBUG: Zip: ", zip);
                     $scope.zip = zip;
                     $scope.location.latitude = position.coords.latitude;
                     $scope.location.longitude = position.coords.longitude;
                 });
 
             }, function(error) {
-                console.log("DEBUG: BLAH");
+                // TODO
+                console.log("ERROR: getLocation");
             });
         };
 
@@ -110,6 +113,15 @@
             if ($scope.opportunities[opp].id == $scope.oppId) {
                 $scope.opportunity = $scope.opportunities[opp];
             }
+        }
+    }]);
+
+    /*
+     * Preferences Controller
+     */
+    angular.module('uw.controllers').controller('PreferencesCtrl', ['$scope', '$location', function($scope, $location) {
+        $scope.save = function() {
+            $location.path("/index");
         }
     }]);
 }());
