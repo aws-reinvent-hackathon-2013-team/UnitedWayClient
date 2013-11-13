@@ -9,10 +9,10 @@
 
     angular.module('uw').config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
         $routeProvider.
-            when('/index', {controller:'MainCtrl', templateUrl:'/partials/main.html'}).
-            when('/opportunity', {controller:'OpportunityCtrl', templateUrl:'/partials/opportunity.html'}).
-            when('/preferences', {controller:'PreferencesCtrl', templateUrl:'/partials/preferences.html'}).
-            when('/login', {controller:'LoginCtrl', templateUrl:'/partials/login.html'}).
+            when('/index', {controller:'MainCtrl', templateUrl:'app/partials/main.html'}).
+            when('/opportunity', {controller:'OpportunityCtrl', templateUrl:'app/partials/opportunity.html'}).
+            when('/preferences', {controller:'PreferencesCtrl', templateUrl:'app/partials/preferences.html'}).
+            when('/login', {controller:'LoginCtrl', templateUrl:'app/partials/login.html'}).
             otherwise({redirectTo:'/index'});
 
         $locationProvider.html5Mode(true).hashPrefix('!');
