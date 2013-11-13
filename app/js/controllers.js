@@ -11,7 +11,7 @@
     /*
      * Main Controller
      */
-    angular.module('uw.controllers').controller('AppCtrl', ['$scope', '$window', '$http', 'uw.services.api.mock', function($scope, $window, $http, serviceApi) {
+    angular.module('uw.controllers').controller('AppCtrl', ['$scope', '$window', '$http', 'uw.services.api', function($scope, $window, $http, serviceApi) {
         $scope.preferences = {};
         serviceApi.getCategories(function(err, data) {
             $scope.preferences.categoryOptions = data;
@@ -27,6 +27,8 @@
         };
 
         $scope.donor = {};
+        $scope.donor.registrations = [];
+        //TODO: Need to load donor.registrations
 
         $scope.showMapView = function() {
 
@@ -149,6 +151,10 @@
                 $scope.opportunity = $scope.opportunities[opp];
             }
         }
+
+        $scope.register = function() {
+            $scope.donor.registrations.push($scope.opportunity);
+        }
     }]);
 
     /*
@@ -169,4 +175,10 @@
         }
     }]);
 
+    /*
+     * Registrations Controller
+     */
+    angular.module('uw.controllers').controller('MyRegistrationsCtrl', ['$scope', '$location', function($scope, $location) {
+        
+    }]);
 }());

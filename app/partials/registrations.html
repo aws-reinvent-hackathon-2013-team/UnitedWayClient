@@ -1,9 +1,7 @@
-<div class="uw-map-view-button">
-    <button type="button" class="btn btn-default" ng-click="showMapView()">Map View</button>
-</div>
+Registrations
 <table class="table table-responsive opportunityTable">
     <tbody>
-    <tr ng-repeat="opportunity in opportunities">
+    <tr ng-repeat="opportunity in donor.registrations">
         <td>
             <a href="/opportunity?id={{opportunity.id}}">
                 <div>
