@@ -12,6 +12,10 @@
      * Main Controller
      */
     angular.module('uw.controllers').controller('AppCtrl', ['$scope', '$window', '$http', 'uw.services.api', function($scope, $window, $http, serviceApi) {
+        $scope.donor = {};
+        $scope.donor.registrations = [];
+        //TODO: Need to load donor.registrations
+
         $scope.preferences = {};
         serviceApi.getCategories($scope.donor, function(err, data) {
             $scope.preferences.categoryOptions = data;
@@ -25,10 +29,6 @@
             longitude: 0,
             zip: ""
         };
-
-        $scope.donor = {};
-        $scope.donor.registrations = [];
-        //TODO: Need to load donor.registrations
 
         $scope.session = {};
 
