@@ -131,12 +131,18 @@
                 var data = $scope.opportunities[i];
                 markers.push([data.title, data.location.latitude, data.location.longitude, i + 1]);
 
-                new google.maps.Marker({
+                var marker = new google.maps.Marker({
                     position: new google.maps.LatLng(markers[i][1], markers[i][2]),
                     map: map,
                     title: markers[i][0],
                     zIndex: markers[i][3],
                     icon: '/img/blue-dot.png'
+                });
+
+                google.maps.event.addListener(marker, 'click', function() {
+
+                    var infowindow = new google.maps.InfoWindow({ content: markers[i][0] });
+                    infowindow.open(map, marker);
                 });
             }
         }
