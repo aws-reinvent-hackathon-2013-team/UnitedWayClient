@@ -140,9 +140,9 @@
                 });
 
                 var title = markers[i][0];
-                var infowindow = new google.maps.InfoWindow({ content: title });
-                google.maps.event.addListener(marker, 'click', function() {
 
+                google.maps.event.addListener(marker, 'click', function(marker, name) {
+                    var infowindow = new google.maps.InfoWindow({ content: name });
                     infowindow.open(map, marker);
                 });
             }
