@@ -135,7 +135,8 @@
                     position: new google.maps.LatLng(markers[i][1], markers[i][2]),
                     map: map,
                     title: markers[i][0],
-                    zIndex: markers[i][3]
+                    zIndex: markers[i][3],
+                    icon: '/img/blue-dot.png'
                 });
             }
         }
@@ -179,6 +180,6 @@
      * Registrations Controller
      */
     angular.module('uw.controllers').controller('MyRegistrationsCtrl', ['$scope', '$location', function($scope, $location) {
-        
+
     }]);
 }());
