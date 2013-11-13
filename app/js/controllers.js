@@ -27,7 +27,7 @@
         };
 
         $scope.donor = {};
-        $scope.donor.registrations = {};
+        $scope.donor.registrations = [];
         //TODO: Need to load donor.registrations
 
         $scope.showMapView = function() {
@@ -126,6 +126,10 @@
                 $scope.opportunity = $scope.opportunities[opp];
             }
         }
+
+        $scope.register = function() {
+            $scope.donor.registrations.push($scope.opportunity);
+        }
     }]);
 
     /*
@@ -150,6 +154,6 @@
      * Registrations Controller
      */
     angular.module('uw.controllers').controller('MyRegistrationsCtrl', ['$scope', '$location', function($scope, $location) {
-        $scope.donor.registrations = $scope.opportunities;
+        
     }]);
 }());
