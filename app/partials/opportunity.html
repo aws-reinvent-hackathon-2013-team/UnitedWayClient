@@ -1,16 +1,16 @@
-<div class="opportunityTitle">{{opportunity.title}}</div>
-<div class="opportunityDescription">{{opportunity.description}}</div>
-<div class="opportunityTime">{{opportunity.timeStart}} - {{opportunity.timeEnd}}</div> <!-- TODO: filter -->
-<div class="opportunityCategory">{{opportunity.category}}</div>
+<div class="opportunityTitle">{{session.opportunity.title}}</div>
+<div class="opportunityDescription">{{session.opportunity.description}}</div>
+<div class="opportunityTime">{{session.opportunity.timeStart}} - {{session.opportunity.timeEnd}}</div> <!-- TODO: filter -->
+<div class="opportunityCategory">{{session.opportunity.category}}</div>
 <div class="opportunityLocation">
-    <span>{{opportunity.location.address1}}</span><br/>
+    <span>{{session.opportunity.location.address1}}</span><br/>
     <!-- MORE -->
 </div>
 <div class="opportunityAgency">
-    <span>{{opportunity.agency.name}}</span><br/>
-    <span>{{opportunity.agency.phone}}</span><br/>
-    <span>{{opportunity.agency.email}}</span><br/>
-    <span>{{opportunity.agency.location.address1}}</span><br/>
+    <span>{{session.opportunity.agency.name}}</span><br/>
+    <span>{{session.opportunity.agency.phone}}</span><br/>
+    <span>{{session.opportunity.agency.email}}</span><br/>
+    <span>{{session.opportunity.agency.location.address1}}</span><br/>
 </div>
 
 <button type="button" class="btn btn-primary" ng-click="register()">Register for this volunteer opportunity</button>

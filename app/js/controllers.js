@@ -30,6 +30,8 @@
         $scope.donor.registrations = [];
         //TODO: Need to load donor.registrations
 
+        $scope.session = {};
+
         $scope.showMapView = function() {
 
             $scope.selectedView = 'map-view';
@@ -157,12 +159,13 @@
         $scope.oppId = $location.search().id;
         for (var opp in $scope.opportunities) {
             if ($scope.opportunities[opp].id == $scope.oppId) {
-                $scope.opportunity = $scope.opportunities[opp];
+                $scope.session.opportunity = $scope.opportunities[opp];
             }
         }
 
         $scope.register = function() {
-            $scope.donor.registrations.push($scope.opportunity);
+            $scope.donor.registrations.push($scope.session.opportunity);
+            $location.path("/registered");
         }
     }]);
 
@@ -189,5 +192,16 @@
      */
     angular.module('uw.controllers').controller('MyRegistrationsCtrl', ['$scope', '$location', function($scope, $location) {
 
+    }]);
+    angular.module('uw.controllers').controller('RegisteredCtrl', ['$scope', '$location', function($scope, $location) {
+        $scope.yesFacebook = function() {
+            window.location.href = "http://www.facebook.com/sharer/sharer.php?s=100&p[url]=http://unitedway.elasticbeanstalk.com" +
+                "&p[images][0]=http://www.unitedwayokc.org/sites/all/themes/uw/images/1.jpg&p[title]=United%20Way&p[summary]=" +
+                "I%20Just%20Volunteered%20For%20" + $scope.session.opportunity.title +
+                "%20through%20United%20Way.%20Click%20here%20to%20find%20volunteer%20opportunities%20near%20you!";
+        }
+        $scope.noFacebook = function() {
+            $location.path("/main");
+        }
     }]);
 }());
