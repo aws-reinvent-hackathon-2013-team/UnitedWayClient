@@ -11,7 +11,7 @@
     /*
      * Main Controller
      */
-    angular.module('uw.controllers').controller('AppCtrl', ['$scope', '$window', '$http', 'uw.services.api', function($scope, $window, $http, serviceApi) {
+    angular.module('uw.controllers').controller('AppCtrl', ['$scope', '$window', '$http', 'uw.services.api.mock', function($scope, $window, $http, serviceApi) {
         $scope.preferences = {};
         serviceApi.getCategories(function(err, data) {
             $scope.preferences.categoryOptions = data;
@@ -19,10 +19,11 @@
         $scope.preferences.distanceOptions = [ 10, 20, 30, 50, 60 ];
 
         $scope.selectedView = 'welcome-view';
-        $scope.zip;
+
         $scope.location = {
             latitude: 0,
-            longitude: 0
+            longitude: 0,
+            zip: ""
         };
 
         $scope.donor = {};
@@ -42,14 +43,24 @@
                 $scope.selectedView = 'list-view';
             }
 
-            loadOpportunities("ignored");
+            loadOpportunities();
         };
 
-        function loadOpportunities(zip) {
-            serviceApi.getOpportunities({}, function(err, data) {
-                // TODO: Handle the error
-                $scope.opportunities = data;
-            });
+        function loadOpportunities() {
+
+            console.log("DEBUG: zip >%s<", $scope.location.zip);
+
+            if(!$scope.location.zip) {
+
+                alertify.error("Please enter Zip code");
+            }
+            else {
+
+                serviceApi.getOpportunities({ "zip" : $scope.location.zip }, function(err, data) {
+                    // TODO: Handle the error
+                    $scope.opportunities = data;
+                });
+            }
         }
 
         function getLocation() {
@@ -59,14 +70,14 @@
                 var latLng = position.coords.latitude + "," + position.coords.longitude;
                 serviceApi.getZip({ "latlng" : latLng, "sensor" : "false" }, function(err, zip) {
 
-                    $scope.zip = zip;
+                    $scope.location.zip = zip;
                     $scope.location.latitude = position.coords.latitude;
                     $scope.location.longitude = position.coords.longitude;
                 });
 
             }, function(error) {
-                // TODO
-                console.log("ERROR: getLocation");
+
+                alertify.error("ERROR: Was not able to determine Zip code");
             });
         };
 

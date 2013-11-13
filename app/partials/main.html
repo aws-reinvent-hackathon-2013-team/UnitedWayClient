@@ -1,10 +1,14 @@
 <div class="container uw-zip-container">
-    <div class="input-group">
-        <input type="text" placeholder="ZIP Code" ng-model="zip" class="form-control">
-      <span class="input-group-btn">
-        <button class="btn btn-primary" type="button" ng-click="getOpportunities()">Submit</button>
-      </span>
-    </div>
+    <form ng-submit="getOpportunities()">
+
+        <div class="input-group">
+            <input type="text" placeholder="ZIP Code" ng-model="location.zip" class="form-control">
+            <span class="input-group-btn">
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </span>
+        </div>
+
+    </form>
 </div>
 
 <div ng-include="'/partials/' + selectedView + '.html'"></div>
