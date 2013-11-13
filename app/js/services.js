@@ -16,9 +16,15 @@
                 {
                     "method" : "GET",
                     "url" : "/api/categories",
-                    "cache" : false
+                    "cache" : false,
+                    "headers": {
+                        "X-United-Way-Volunteer": $scope.donor.headerId
+                    }
                 })
                 .success(function(data, status, headers, config) {
+                    if($scope.donor.headerId==null) {
+                        $scope.donor.headerId = headers()["X-United-Way-Volunteer"];
+                    }
 
                     callback(false, data);
                 })
@@ -40,9 +46,15 @@
                     "method" : "GET",
                     "url" : "/api/opportunities",
                     "cache" : false,
-                    "params" : queryStringParameters
+                    "params" : queryStringParameters,
+                    "headers": {
+                        "X-United-Way-Volunteer": $scope.donor.headerId
+                    }
                 })
                 .success(function(data, status, headers, config) {
+                    if($scope.donor.headerId==null) {
+                        $scope.donor.headerId = headers()["X-United-Way-Volunteer"];
+                    }
 
                     callback(false, data);
                 })

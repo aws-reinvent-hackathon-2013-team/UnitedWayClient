@@ -183,6 +183,7 @@
      */
     angular.module('uw.controllers').controller('LoginCtrl', ['$scope', '$location', function($scope, $location) {
         $scope.login = function() {
+            $scope.donor.headerId = $scope.donor.id; // needs to match if we set it!
             $location.path("/index");
         }
     }]);
