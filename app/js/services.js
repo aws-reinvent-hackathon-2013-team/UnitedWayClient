@@ -64,6 +64,18 @@
                 });
         };
 
+        ApiService.register = function(donor, id) {
+            $http(
+                {
+                    "method" : "POST",
+                    "url" : "/api/opportunity/" + id + "/register",
+                    "cache" : false,
+                    "headers": {
+                        "X-United-Way-Volunteer": donor.headerId
+                    }
+                })
+        };
+
         /*
          * queryStringParameters:
          * e.g.

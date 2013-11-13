@@ -155,7 +155,7 @@
     /*
      * Opportunity Controller
      */
-    angular.module('uw.controllers').controller('OpportunityCtrl', ['$scope', '$location', function($scope, $location) {
+    angular.module('uw.controllers').controller('OpportunityCtrl', ['$scope', '$location', 'uw.services.api', function($scope, $location, serviceApi) {
         $scope.oppId = $location.search().id;
         for (var opp in $scope.opportunities) {
             if ($scope.opportunities[opp].id == $scope.oppId) {
@@ -165,6 +165,8 @@
 
         $scope.register = function() {
             $scope.donor.registrations.push($scope.session.opportunity);
+            serviceApi.register($scope.donor, $scope.oppId);
+
             $location.path("/registered");
         }
     }]);
